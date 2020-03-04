@@ -1,0 +1,21 @@
+.tester 
+{
+    width:auto;
+    height:auto;
+    border: solid red;
+}
+
+.header img 
+{
+    margin: 5px;
+    float: right;
+    width: 600px;
+    height: 36px;
+}
+
+.header h1 
+{
+/* position: center; */
+/* top: 18px; */
+left: 10px;
+}
