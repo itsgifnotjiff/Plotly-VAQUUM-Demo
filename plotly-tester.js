@@ -1,3 +1,5 @@
+let target_div = document.getElementById('tester');
+let exampleData = [];
 let data_experiment_x = [];
 let data_experiment_y = [];
 let list_names_plots = [];
@@ -5,36 +7,37 @@ let list_names_models = [];
 let list_line_layouts = 
 [
 	{
-		symbol: ["diamond-open"],
+		symbol: "diamond-open",
 		color: 'rgb(0, 24, 143)',
-		size: 5,
+		size: 10,
 		line: {
+			symbol: ["diamond-open"],
 			color: 'rgb(0, 24, 143)',
 			width: 2
 		}
 	},
 	{
-		symbol: ["y-up"],
+		
 		color: 'rgb(0, 188, 242)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(0, 188, 242)',
 			width: 2
 		}
 	},
 	{
-		symbol: ["circle-open"],
+		
 		color: 'rgb(0, 178, 148)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(0, 178, 148)',
 			width: 2
 		}
 	},
 	{
-		symbol: ["triangle-up-open"],
+		symbol: "triangle-up-open",
 		color: 'rgb(0, 158, 73)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(0, 158, 73)',
 			width: 2
@@ -42,7 +45,7 @@ let list_line_layouts =
 	},
 	{
 		color: 'rgb(100, 235, 52)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(100, 235, 52)',
 			width: 2
@@ -50,15 +53,16 @@ let list_line_layouts =
 	},
 	{
 		color: 'rgb(255, 241, 0)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(255, 241, 0)',
 			width: 2
 		}
 	},
 	{
+		symbol: "y-up",
 		color: 'rgb(255, 140, 0)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(255, 140, 0)',
 			width: 2
@@ -66,7 +70,7 @@ let list_line_layouts =
 	},
 	{
 		color: 'rgb(232, 17, 35)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(232, 17, 35)',
 			width: 2
@@ -74,15 +78,16 @@ let list_line_layouts =
 	},
 	{
 		color: 'rgb(236, 0, 140)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(236, 0, 140)',
 			width: 2
 		}
 	},
 	{
+		symbol: "circle",
 		color: 'rgb(104, 33, 122)',
-		size: 5,
+		size: 10,
 		line: {
 			color: 'rgb(104, 33, 122)',
 			width: 2
@@ -91,10 +96,10 @@ let list_line_layouts =
 
 ];
 
-for(model in data)
+for( model in data )
 {
-	list_names_models.push(model);
-	for(region in data[model])
+	list_names_models.push( model );
+	for(region in data[ model ])
 	{
 		list_names_plots.push( model + " " + region )
 		var xs = [];
@@ -110,8 +115,6 @@ for(model in data)
 	}
 	
 }
-
-let exampleData = [];
 
 for( i = 0 ; i < data_experiment_x.length ; i++ )
 {
@@ -136,22 +139,17 @@ for( i = 0 ; i < exampleData.length ; i++ )
 
 	} else if ( i == 3 || i == 4 || i == 5 )
 	{
-		exampleData[i]["marker"] = list_line_layouts[1];
+		exampleData[i]["marker"] = list_line_layouts[3];
 
 	} else if ( i == 6 || i == 7 || i == 8 )
 	{
-		exampleData[i]["marker"] = list_line_layouts[2];
+		exampleData[i]["marker"] = list_line_layouts[6];
 
 	} else if ( i == 9 || i == 10 || i == 11 )
 	{
-		exampleData[i]["marker"] = list_line_layouts[3];
+		exampleData[i]["marker"] = list_line_layouts[9];
 	}
 }
-
-console.log(exampleData[0]["name"]);
-
-
-target_div = document.getElementById('tester');
 
 let layout = 
 {
