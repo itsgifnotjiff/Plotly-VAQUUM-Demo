@@ -183,47 +183,20 @@ Plotly.newPlot(target_div,exampleData,layout,config);
 
 // I am going for maps now :) 
 
-var url = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson";
+
 
 /*
+
+JSON parse using d3 and use map to make arrays of lon and lat love it love it
+
+var url = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson";
 Plotly.d3.json(url, (err, raw) => 
 {
 	var lon = raw.features.map(f => f.geometry.coordinates[0]);
 	var lat = raw.features.map(f => f.geometry.coordinates[1]);
 	var z = raw.features.map(f => f.properties.mag);
-
-	var data = 
-	[
-		{ type: "scattermapbox", lon: lon, lat: lat, z: z, hoverinfo: "y" }
-	];
-
-	var layout = 
-	{
-		mapbox: { style: "dark", zoom: 2, center: { lon: -150, lat: 60 } },
-		margin: { t: 25 , b: 0 , l: 0 , r: 0 }
-	};
-
-	var config = 
-	{
-		mapboxAccessToken: "pk.eyJ1IjoicmFkZXZ5IiwiYSI6ImNrN2tmdDBtZDB3dWYzbG1wdTlqZHhuZTgifQ.AhUrleq5437lyL9uEzBSyg",
-		showLink: false,
-		editable: false,
-		displayModeBar: true,
-		displaylogo: false,
-		modeBarButtonsToRemove: ['sendDataToCloud'],
-		responsive: true,
-		toImageButtonOptions: 
-		{
-			format: 'png', // one of png, svg, jpeg, webp
-			filename: 'plot',
-			height: document.getElementById('tester').offsetHeight,
-			width: document.getElementById('tester').offsetWidth,
-			scale: 1 // Multiply title/legend/axis/canvas sizes by this factor
-		}
-	};
-
-	Plotly.newPlot('map', data, layout, config);
-});
+	var data = [ { type: "scattermapbox", lon: lon, lat: lat, z: z, hoverinfo: "y" } ];
+}
 */
 
 var data_map = 
@@ -269,3 +242,11 @@ const config_map =
 };
 
 Plotly.newPlot( 'map' , data_map , layout_map , config_map )
+
+
+// Boum !!!! JSON, csv, tsv and xml parser
+
+var d3_parser = Plotly.d3.json("ressources/exampleData.json" , function (data) { console.log(data); });
+
+
+
