@@ -9,7 +9,7 @@ let list_line_layouts =
 	{
 		symbol: "diamond-open",
 		color: 'rgb(0, 24, 143)',
-		size: 10,
+		size: 5,
 		line: {
 			symbol: ["diamond-open"],
 			color: 'rgb(0, 24, 143)',
@@ -37,7 +37,7 @@ let list_line_layouts =
 	{
 		symbol: "triangle-up-open",
 		color: 'rgb(0, 158, 73)',
-		size: 10,
+		size: 5,
 		line: {
 			color: 'rgb(0, 158, 73)',
 			width: 2
@@ -62,7 +62,7 @@ let list_line_layouts =
 	{
 		symbol: "y-up",
 		color: 'rgb(255, 140, 0)',
-		size: 10,
+		size: 5,
 		line: {
 			color: 'rgb(255, 140, 0)',
 			width: 2
@@ -87,7 +87,7 @@ let list_line_layouts =
 	{
 		symbol: "circle",
 		color: 'rgb(104, 33, 122)',
-		size: 10,
+		size: 5,
 		line: {
 			color: 'rgb(104, 33, 122)',
 			width: 2
@@ -157,7 +157,8 @@ let layout =
 	title:'Super Cool Title',
 	xaxis: {title: 'Date',tickformat: '%B-%Y',tickmode: "linear", tick0: "2017-01",dtick: 30 * 24 * 60 * 60 * 1000},
 	yaxis: {title: '\(\pm\)'},
-	margin: {l:60 , r: 300, b:120,t:30,pad:5}
+	margin: {l:60 , r: 300, b:120,t:30,pad:5},
+	template: "plotly_dark"
 }
 
 Plotly.newPlot(target_div,exampleData,layout);
