@@ -151,15 +151,121 @@ for( i = 0 ; i < exampleData.length ; i++ )
 	}
 }
 
+const config = 
+{
+	showLink: false,
+	editable: false,
+	displayModeBar: true,
+	displaylogo: false,
+	modeBarButtonsToRemove: ['sendDataToCloud'],
+	responsive: true,
+	toImageButtonOptions: 
+	{
+		format: 'png', // one of png, svg, jpeg, webp
+		filename: 'plot',
+		height: document.getElementById('tester').offsetHeight,
+		width: document.getElementById('tester').offsetWidth,
+		scale: 1 // Multiply title/legend/axis/canvas sizes by this factor
+	}
+};
+
 let layout = 
 {
 	autosize: true,
 	title:'Super Cool Title',
-	xaxis: {title: 'Date',tickformat: '%B-%Y',tickmode: "linear", tick0: "2017-01",dtick: 30 * 24 * 60 * 60 * 1000},
-	yaxis: {title: '\(\pm\)'},
-	margin: {l:60 , r: 300, b:120,t:30,pad:5},
+	xaxis: { title: 'Date' , tickformat: '%B-%Y' , tickmode: "linear" , tick0: "2017-01" , tickangle: "45" , dtick: 30 * 24 * 60 * 60 * 1000 },
+	yaxis: { title: '\(\pm\)' },
+	margin: { l: 60 , r: 300 , b: 120 , t: 30 , pad: 5 },
 	template: "plotly_dark"
 }
 
-Plotly.newPlot(target_div,exampleData,layout);
+Plotly.newPlot(target_div,exampleData,layout,config);
 
+// I am going for maps now :) 
+
+var url = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson";
+
+/*
+Plotly.d3.json(url, (err, raw) => 
+{
+	var lon = raw.features.map(f => f.geometry.coordinates[0]);
+	var lat = raw.features.map(f => f.geometry.coordinates[1]);
+	var z = raw.features.map(f => f.properties.mag);
+
+	var data = 
+	[
+		{ type: "scattermapbox", lon: lon, lat: lat, z: z, hoverinfo: "y" }
+	];
+
+	var layout = 
+	{
+		mapbox: { style: "dark", zoom: 2, center: { lon: -150, lat: 60 } },
+		margin: { t: 25 , b: 0 , l: 0 , r: 0 }
+	};
+
+	var config = 
+	{
+		mapboxAccessToken: "pk.eyJ1IjoicmFkZXZ5IiwiYSI6ImNrN2tmdDBtZDB3dWYzbG1wdTlqZHhuZTgifQ.AhUrleq5437lyL9uEzBSyg",
+		showLink: false,
+		editable: false,
+		displayModeBar: true,
+		displaylogo: false,
+		modeBarButtonsToRemove: ['sendDataToCloud'],
+		responsive: true,
+		toImageButtonOptions: 
+		{
+			format: 'png', // one of png, svg, jpeg, webp
+			filename: 'plot',
+			height: document.getElementById('tester').offsetHeight,
+			width: document.getElementById('tester').offsetWidth,
+			scale: 1 // Multiply title/legend/axis/canvas sizes by this factor
+		}
+	};
+
+	Plotly.newPlot('map', data, layout, config);
+});
+*/
+
+var data_map = 
+[
+	{
+		type:'scattermapbox',
+		lat:['45.5017'],
+		lon:['-73.5673'],
+		mode:'markers',
+		marker: 
+		{
+			size:14
+		},
+		text:['Montreal']
+	}
+]
+
+var layout_map = 
+{
+  autosize: true,
+  hovermode: 'closest',
+  mapbox: { style: "dark", bearing: 0 , center: { lat: 45 , lon: -73 } , pitch: 0 , zoom: 5 },
+  margin: { t: 25 , b: 0 , l: 0 , r: 0 }
+}
+
+const config_map = 
+{
+	mapboxAccessToken: "pk.eyJ1IjoicmFkZXZ5IiwiYSI6ImNrN2tmdDBtZDB3dWYzbG1wdTlqZHhuZTgifQ.AhUrleq5437lyL9uEzBSyg",
+	showLink: false,
+	editable: false,
+	displayModeBar: true,
+	displaylogo: false,
+	modeBarButtonsToRemove: ['sendDataToCloud'],
+	responsive: true,
+	toImageButtonOptions: 
+	{
+		format: 'png', // one of png, svg, jpeg, webp
+		filename: 'plot',
+		height: document.getElementById('tester').offsetHeight,
+		width: document.getElementById('tester').offsetWidth,
+		scale: 1 // Multiply title/legend/axis/canvas sizes by this factor
+	}
+};
+
+Plotly.newPlot( 'map' , data_map , layout_map , config_map )

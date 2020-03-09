@@ -5,6 +5,13 @@
     border: solid red;
 }
 
+.map
+{
+    width: auto;
+    height: 500px;
+    border: solid blue;
+}
+
 .header img 
 {
     margin: 5px;
